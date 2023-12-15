@@ -11,6 +11,7 @@ let enemy3;
 let score = 0;
 let enemyCount;
 let bossArray = [];
+let round = 0;
 function setup() {
     createCanvas(1480, 700);
     player = new player(740, 680, 5);
@@ -38,6 +39,7 @@ function draw() {
     text("Score: " + score, 10, 40);
     text("Health: " + player.health, 1320, 40);
     text("High Score: " + highScore, 600, 40);
+    text("Round: " + round, 1150, 40);
   
     if (alive) {
         //player
@@ -244,6 +246,7 @@ class player {
         this.health = 5;
         resetShields();
         spawnEnemies();
+        round = 1;
     }
 }
 
