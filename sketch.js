@@ -78,7 +78,7 @@ function draw() {
                 } else {
                     enemies[i][j].fire();
                 }
-                if (enemies[i][j].Ypos > 590) {
+                if (enemies[i][j].YPos > 590) {
                     alive = false;
                     setHighScore();
                 }
