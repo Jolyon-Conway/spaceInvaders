@@ -321,16 +321,10 @@ class enemy {
     display() {
         stroke(255);
         if (this.type == 1) {
-            //fill("red")
-            //rect(this.XPos, this.YPos, 40, 40);
             image(enemy1, this.XPos, this.YPos, 40, 40);
         } else if (this.type == 2) {
-            //fill("yellow")
-            //rect(this.XPos, this.YPos, 40, 40);
             image(enemy2, this.XPos, this.YPos, 40, 40);
         } else if (this.type == 3) {
-            //fill("green")
-            //rect(this.XPos, this.YPos, 40, 40);
             image(enemy3, this.XPos, this.YPos, 40, 40);
         }
     }
