@@ -98,7 +98,7 @@ function draw() {
         }
     }
     //frame increment
-    frame = (frame+1)%60;
+    frame = (frame+1)%1000;
 }
 
 function setHighScore() {
