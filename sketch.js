@@ -19,9 +19,9 @@ function preload() {
     //load highscore
     highScore = parseInt(localStorage.getItem("highScore")) || 0;
     //load enemy sprites
-    //enemy1 = loadImage("Images/enemy1.png");
-    //enemy2 = loadImage("Images/enemy2.png");
-    //enemy3 = loadImage("Images/enemy3.png");
+    enemy1 = loadImage("Images/enemy1.png");
+    enemy2 = loadImage("Images/enemy2.png");
+    enemy3 = loadImage("Images/enemy3.png");
 }
 
 function draw() {
@@ -279,17 +279,17 @@ class enemy {
     display() {
         stroke(255);
         if (this.type == 1) {
-            fill("red")
-            rect(this.XPos, this.YPos, 40, 40);
-            //image(enemy1, this.Xpos, this.Ypos, 40, 40);
+            //fill("red")
+            //rect(this.XPos, this.YPos, 40, 40);
+            image(enemy1, this.Xpos, this.Ypos, 40, 40);
         } else if (this.type == 2) {
-            fill("yellow")
-            rect(this.XPos, this.YPos, 40, 40);
-            //image(enemy2, this.Xpos, this.Ypos, 40, 40);
+            //fill("yellow")
+            //rect(this.XPos, this.YPos, 40, 40);
+            image(enemy2, this.Xpos, this.Ypos, 40, 40);
         } else if (this.type == 3) {
-            fill("green")
-            rect(this.XPos, this.YPos, 40, 40);
-            //image(enemy3, this.Xpos, this.Ypos, 40, 40);
+            //fill("green")
+            //rect(this.XPos, this.YPos, 40, 40);
+            image(enemy3, this.Xpos, this.Ypos, 40, 40);
         }
     }
 }
