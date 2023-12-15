@@ -19,9 +19,9 @@ function preload() {
     //load highscore
     highScore = parseInt(localStorage.getItem("highScore")) || 0;
     //load enemy sprites
-    enemy1 = loadImage("Images/enemy1.png");
-    enemy2 = loadImage("Images/enemy2.png");
-    enemy3 = loadImage("Images/enemy3.png");
+    //enemy1 = loadImage("Images/enemy1.png");
+    //enemy2 = loadImage("Images/enemy2.png");
+    //enemy3 = loadImage("Images/enemy3.png");
 }
 
 function draw() {
@@ -69,7 +69,9 @@ function draw() {
 
         //enemies
         for (i = 0; i < enemies.length; i++) {
-            enemies[i].display();
+            for (j = 0; j < enemies[i].length; j++) {
+                enemies[i][j].display();
+            }
         }
     } else {
         textSize(32);
@@ -147,11 +149,13 @@ function resetShields() {
 }
 
 function spawnEnemies() {
-    for (i = 0; i < 7; i++) {
-        for (j = 0; j < 10; j++) {
-            enemies.push(new enemy(158 + (i * 200), 100 + (j * 50), 1));
-        }
-    }
+    enemies = [
+        [new enemy(50, 100, 1)], [new enemy(120, 100, 1)], [new enemy(190, 100, 1)], [new enemy(260, 100, 1)], [new enemy(330, 100, 1)], [new enemy(400, 100, 1)], [new enemy(470, 100, 1)], [new enemy(540, 100, 1)], [new enemy(610, 100, 1)], [new enemy(680, 100, 1)], [new enemy(750, 100, 1)], [new enemy(820, 100, 1)], [new enemy(890, 100, 1)], [new enemy(960, 100, 1)], [new enemy(1030, 100, 1)], [new enemy(1100, 100, 1)], [new enemy(1170, 100, 1)], [new enemy(1240, 100, 1)],
+        [new enemy(50, 160, 1)], [new enemy(120, 160, 1)], [new enemy(190, 160, 1)], [new enemy(260, 160, 1)], [new enemy(330, 160, 1)], [new enemy(400, 160, 1)], [new enemy(470, 160, 1)], [new enemy(540, 160, 1)], [new enemy(610, 160, 1)], [new enemy(680, 160, 1)], [new enemy(750, 160, 1)], [new enemy(820, 160, 1)], [new enemy(890, 160, 1)], [new enemy(960, 160, 1)], [new enemy(1030, 160, 1)], [new enemy(1100, 160, 1)], [new enemy(1170, 160, 1)], [new enemy(1240, 160, 1)],
+        [new enemy(50, 220, 1)], [new enemy(120, 220, 1)], [new enemy(190, 220, 1)], [new enemy(260, 220, 1)], [new enemy(330, 220, 1)], [new enemy(400, 220, 1)], [new enemy(470, 220, 1)], [new enemy(540, 220, 1)], [new enemy(610, 220, 1)], [new enemy(680, 220, 1)], [new enemy(750, 220, 1)], [new enemy(820, 220, 1)], [new enemy(890, 220, 1)], [new enemy(960, 220, 1)], [new enemy(1030, 220, 1)], [new enemy(1100, 220, 1)], [new enemy(1170, 220, 1)], [new enemy(1240, 220, 1)],
+        [new enemy(50, 280, 1)], [new enemy(120, 280, 1)], [new enemy(190, 280, 1)], [new enemy(260, 280, 1)], [new enemy(330, 280, 1)], [new enemy(400, 280, 1)], [new enemy(470, 280, 1)], [new enemy(540, 280, 1)], [new enemy(610, 280, 1)], [new enemy(680, 280, 1)], [new enemy(750, 280, 1)], [new enemy(820, 280, 1)], [new enemy(890, 280, 1)], [new enemy(960, 280, 1)], [new enemy(1030, 280, 1)], [new enemy(1100, 280, 1)], [new enemy(1170, 280, 1)], [new enemy(1240, 280, 1)],
+        [new enemy(50, 340, 1)], [new enemy(120, 340, 1)], [new enemy(190, 340, 1)], [new enemy(260, 340, 1)], [new enemy(330, 340, 1)], [new enemy(400, 340, 1)], [new enemy(470, 340, 1)], [new enemy(540, 340, 1)], [new enemy(610, 340, 1)], [new enemy(680, 340, 1)], [new enemy(750, 340, 1)], [new enemy(820, 340, 1)], [new enemy(890, 340, 1)], [new enemy(960, 340, 1)], [new enemy(1030, 340, 1)], [new enemy(1100, 340, 1)], [new enemy(1170, 340, 1)], [new enemy(1240, 340, 1)],
+    ]
 }
 // classes
 
@@ -275,11 +279,17 @@ class enemy {
     display() {
         stroke(255);
         if (this.type == 1) {
-            image(enemy1, this.Xpos, this.Ypos, 40, 40);
+            fill("red")
+            rect(this.XPos, this.YPos, 40, 40);
+            //image(enemy1, this.Xpos, this.Ypos, 40, 40);
         } else if (this.type == 2) {
-            image(enemy2, this.Xpos, this.Ypos, 40, 40);
+            fill("yellow")
+            rect(this.XPos, this.YPos, 40, 40);
+            //image(enemy2, this.Xpos, this.Ypos, 40, 40);
         } else if (this.type == 3) {
-            image(enemy3, this.Xpos, this.Ypos, 40, 40);
+            fill("green")
+            rect(this.XPos, this.YPos, 40, 40);
+            //image(enemy3, this.Xpos, this.Ypos, 40, 40);
         }
     }
 }
