@@ -84,6 +84,7 @@ function draw() {
                 }
             }
         }
+        frame = (frame + 1) % 1000;
     } else {
         textSize(32);
         text("Press button to Start", 600, 350);
