@@ -78,7 +78,7 @@ function draw() {
                 } else {
                     enemies[i][j].fire();
                 }
-                if (enemies[i][j].YPos > 590) {
+                if (enemies[i][j].getYPos() > 590) {
                     alive = false;
                     setHighScore();
                 }
@@ -396,5 +396,8 @@ class enemy {
         if (temp == 27) {
             bullets.push(new bullet(this.XPos +20, this.YPos +40, "enemy"))
         }
+    }
+    getYPos() {
+        return this.YPos;
     }
 }
