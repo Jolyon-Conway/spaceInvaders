@@ -25,7 +25,7 @@ function preload() {
     enemy1 = loadImage("Images/enemy1.png");
     enemy2 = loadImage("Images/enemy2.png");
     enemy3 = loadImage("Images/enemy3.png");
-    bossSprite = loadImage("Images/boss.png");
+    bossSprite = loadImage("Images/Boss.png");
 }
 
 function draw() {
