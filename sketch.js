@@ -5,6 +5,9 @@ let tempTimer = 0;
 let alive = false;
 let shields = [];
 let enemies = [];
+let enemy1;
+let enemy2;
+let enemy3;
 function setup() {
     createCanvas(1480, 700);
     player = new player(740, 680, 5);
@@ -16,9 +19,9 @@ function preload() {
     //load highscore
     highScore = parseInt(localStorage.getItem("highScore")) || 0;
     //load enemy sprites
-    let enemy1 = loadImage("Images/enemy1.png");
-    let enemy2 = loadImage("Images/enemy2.png");
-    let enemy3 = loadImage("Images/enemy3.png");
+    enemy1 = loadImage("Images/enemy1.png");
+    enemy2 = loadImage("Images/enemy2.png");
+    enemy3 = loadImage("Images/enemy3.png");
 }
 
 function draw() {
