@@ -78,10 +78,6 @@ function draw() {
                 } else {
                     enemies[i][j].fire();
                 }
-                if (enemies[i][j].getYPos() > 590) {
-                    alive = false;
-                    setHighScore();
-                }
             }
         }
         frame = (frame + 1) % 1000;
@@ -380,6 +376,9 @@ class enemy {
         } else if (frame < 1000) {
             this.YPos -= 0.12;
         }
+        if (this.YPos > 590) {
+            player.health = 0;
+        }
     }
     hitCheck() {
         for (let i = 0; i < bullets.length; i++) {
@@ -398,7 +397,5 @@ class enemy {
             bullets.push(new bullet(this.XPos +20, this.YPos +40, "enemy"))
         }
     }
-    getYPos() {
-        return this.YPos;
-    }
+
 }
