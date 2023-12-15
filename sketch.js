@@ -232,9 +232,17 @@ class bullet {
         }
     }
     display() {
-        stroke(255);
-        fill(255);
-        rect(this.Xpos, this.Ypos, 2, 10);
+        if (this.type == "player") {
+            stroke(255);
+            fill(255);
+            rect(this.Xpos, this.Ypos, 2, 10);
+        } else if (this.type == "enemy") {
+            stroke(255);
+            fill(255);
+            rect(this.Xpos, this.Ypos, 2, 3);
+            rect(this.Xpos +2, this.Ypos +3, 2, 4);
+            rect(this.Xpos, this.Ypos +7, 2, 3);
+        }
     }
 }
 
