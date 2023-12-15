@@ -311,14 +311,14 @@ class enemy {
     }
 
     move() {
-        if (frame < 15) {
+        if (frame < 250) {
             this.XPos += 1;
-        } else if (frame < 30) {
-            this.YPos += 1.2;
-        } else if (frame < 45) {
+        } else if (frame < 500) {
+            this.YPos += 1.144;
+        } else if (frame < 750) {
             this.XPos -= 1;
         } else if (frame < 60) {
-            this.YPos -= 1;
+            this.YPos -= 0.12;
         }
     }
     hitCheck(indexI, indexJ) {
