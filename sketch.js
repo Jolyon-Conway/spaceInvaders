@@ -86,6 +86,7 @@ function draw() {
         }
         if (enemyCount == 0) {
             spawnEnemies();
+            player.health += 1;
         }
         //boss
         if (Math.floor(Math.random() * 1000) == 476) {
