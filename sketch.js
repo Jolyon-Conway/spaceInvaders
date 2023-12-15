@@ -392,7 +392,7 @@ class enemy {
         }
     }
     fire() {
-        let temp = Math.floor(Math.random() * 100);
+        let temp = Math.floor(Math.random() * 1000);
         if (temp == 27) {
             bullets.push(new bullet(this.XPos +20, this.YPos +40, "enemy"))
         }
