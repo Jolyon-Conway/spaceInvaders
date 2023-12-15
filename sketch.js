@@ -73,7 +73,7 @@ function draw() {
             for (j = 0; j < enemies[i].length; j++) {
                 enemies[i][j].display();
                 enemies[i][j].move();
-                enemies[i][j].hitCheck();
+                enemies[i][j].hitCheck(i, j);
                 enemies[i][j].fire();
             }
         }
@@ -321,12 +321,12 @@ class enemy {
             this.YPos -= 1;
         }
     }
-    hitCheck() {
+    hitCheck(indexI, indexJ) {
         for (let i = 0; i < bullets.length; i++) {
             if (bullets[i].type == "player") {
                 if (bullets[i].Xpos > this.XPos && bullets[i].Xpos < this.XPos + 40 && bullets[i].Ypos > this.YPos && bullets[i].Ypos < this.YPos + 40) {
                     bullets.splice(i, 1);
-                    enemies.splice(0, 1);
+                    enemies[indexI].splice(indexJ, 1);
                     score += 50;
                 }
             }
