@@ -8,6 +8,7 @@ let enemies = [];
 let enemy1;
 let enemy2;
 let enemy3;
+let frame = 0;
 function setup() {
     createCanvas(1480, 700);
     player = new player(740, 680, 5);
@@ -71,7 +72,13 @@ function draw() {
         for (i = 0; i < enemies.length; i++) {
             for (j = 0; j < enemies[i].length; j++) {
                 enemies[i][j].display();
+                enemies[i][j].move();
+                enemies[i][j].hitCheck();
+                enemies[i][j].fire();
             }
+        }
+        if (enemies.length == 0) {
+            spawnEnemies();
         }
     } else {
         textSize(32);
@@ -90,6 +97,8 @@ function draw() {
             alive = true;
         }
     }
+    //frame increment
+    frame = (frame+1)%60;
 }
 
 function setHighScore() {
@@ -298,6 +307,35 @@ class enemy {
             //fill("green")
             //rect(this.XPos, this.YPos, 40, 40);
             image(enemy3, this.Xpos, this.Ypos, 40, 40);
+        }
+    }
+
+    move() {
+        if (frame < 15) {
+            this.XPos += 1;
+        } else if (frame < 30) {
+            this.YPos += 1.2;
+        } else if (frame < 45) {
+            this.XPos -= 1;
+        } else if (frame < 60) {
+            this.YPos -= 1;
+        }
+    }
+    hitCheck() {
+        for (let i = 0; i < bullets.length; i++) {
+            if (bullets[i].type == "player") {
+                if (bullets[i].Xpos > this.XPos && bullets[i].Xpos < this.XPos + 40 && bullets[i].Ypos > this.YPos && bullets[i].Ypos < this.YPos + 40) {
+                    bullets.splice(i, 1);
+                    enemies.splice(0, 1);
+                    score += 50;
+                }
+            }
+        }
+    }
+    fire() {
+        temp = math.random(0, 1000);
+        if (temp == 27) {
+            bullets.push(new bullet(this.Xpos +20, this.Ypos +40, "enemy"))
         }
     }
 }
