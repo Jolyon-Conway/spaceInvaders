@@ -7,6 +7,7 @@ let enemies = [];
 let enemy1;
 let enemy2;
 let enemy3;
+let score = 0;
 function setup() {
     createCanvas(1480, 700);
     player = new player(740, 680, 5);
