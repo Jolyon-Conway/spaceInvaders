@@ -1,7 +1,6 @@
 let timer = 0;
 let frame = 0;
 let bullets = [];
-let tempTimer = 0;
 let alive = false;
 let shields = [];
 let enemies = [];
