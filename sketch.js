@@ -191,6 +191,7 @@ function spawnEnemies() {
     ]
     enemyCount = 85;
     frame = 0;
+    round += 1;
 }
 // classes
 
@@ -245,7 +246,6 @@ class player {
         this.health = 5;
         resetShields();
         spawnEnemies();
-        round = 1;
     }
 }
 
